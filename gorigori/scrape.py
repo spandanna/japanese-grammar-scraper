@@ -1,3 +1,4 @@
+import datetime as dt
 import json
 import os
 import time
@@ -9,7 +10,9 @@ from gorigori.source import Source
 
 class Scraper:
     def __init__(self):
-        self.session = CachedSession("japanese_grammar_cache")
+        self.session = CachedSession(
+            "japanese_grammar_cache", expire_after=dt.timedelta(days=1)
+        )
         self.prev_request_from_cache = True
         self.data_dir = "data"
         self.input_file = os.path.join(self.data_dir, "input.json")
