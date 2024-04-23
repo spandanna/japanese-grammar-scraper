@@ -1,6 +1,8 @@
+import datetime as dt
 from abc import ABC, abstractmethod
 
 from bs4 import BeautifulSoup
+from requests_cache import CachedSession
 
 
 class Source(ABC):
@@ -22,6 +24,8 @@ class Source(ABC):
             return NihongoKyoshi()
         elif "jlptsensei" in url:
             return JLPTSensei()
+        elif "google" in url:
+            return GoogleNews()
         else:
             raise KeyError("url not recognised.")
 
@@ -69,6 +73,39 @@ class JLPTSensei(Source):
         target = soup.find_all(name="p", attrs=["m-0", "jp"])
         for sentence in target:
             example_sentences.append(sentence.text)
+        return example_sentences
+
+    @staticmethod
+    def format_example_sentence(string: str) -> str:
+        return string
+
+
+class GoogleNews(Source):
+    def __init__(self, base_url: str = "https://www.google.com/search"):
+        super().__init__(base_url)
+
+    @staticmethod
+    def parse_example_sentences(content: bytes) -> list:
+        """Parses example japanese sentences from google news search results.
+
+        Not yet implemented.
+        """
+
+        session = CachedSession(
+            "japanese_grammar_cache", expire_after=dt.timedelta(days=7)
+        )
+
+        example_sentences = []
+
+        soup = BeautifulSoup(content, "html.parser")
+
+        # find links to hnews articles
+        target = soup.find_all(name="a")
+        news_articles = [title.href for title in target]
+
+        # pull html for each article
+        # do some simple regex to extract the sentence containing the target grammar
+
         return example_sentences
 
     @staticmethod

@@ -1,4 +1,15 @@
-[
+[         {
+   "romaji": "~teirai",
+   "locations": ["https://nihongokyoshi-net.com/2018/03/27/jlptn2-grammar-irai/",
+"https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e4%bb%a5%e6%9d%a5-te-irai-meaning/"]
+,
+   "furigana": "〜ていらい",
+   "japanese": "〜て以来",
+   "english": "ever since ~",
+   "notes": "can't be used in the recent past",
+   "硬い言い方": false,
+   "examples": []
+},
       {
          "romaji": "~shidai",
          "locations": [
@@ -13,7 +24,8 @@
       },
          {
             "romaji": "~sai(ni)",
-            "locations": ["https://nihongokyoshi-net.com/2018/05/03/jlptn3-grammar-sai/",
+            "locations": [
+               "https://nihongokyoshi-net.com/2018/05/03/jlptn3-grammar-sai/",
          "https://jlptsensei.com/learn-japanese-grammar/%e9%9a%9b%e3%81%ab-sai-ni-meaning/"],
             "japanese": "〜際（に）",
             "furigana": "〜さい（に）",
@@ -41,6 +53,39 @@
             "japanese": "〜上で",
             "english": "after doing ~",
             "notes": "the antecedent is a precondition for the consequent to occur.",
+            "硬い言い方": false,
+            "examples": []
+         },
+
+         {
+            "romaji": "~tekonokata",
+            "locations": ["https://nihongokyoshi-net.com/2019/11/14/jlptn2-grammar-tekonokata/"],
+            "furigana": "〜てこのかた",
+            "japanese": "〜てこのかた",
+            "english": "ever since ~",
+            "notes": "can't be used in the recent past. Similar to て以来 but translated more like 'I have never ~'",
+            "硬い言い方": false,
+            "examples": []
+         },
+         {
+            "romaji": "~tekaradenaito/~tekaradenakereba",
+            "locations": ["https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%8b%e3%82%89%e3%81%a7%e3%81%aa%e3%81%84%e3%81%a8-te-kara-de-nai-to-meaning/",
+         "https://nihongokyoshi-net.com/2019/05/21/jlptn3-grammar-karadenaito/"],
+            "furigana": "〜てからでないと・〜てからでなければ",
+            "japanese": "〜てからでないと・〜てからでなければ",
+            "english": "must first do...",
+            "notes": "",
+            "硬い言い方": false,
+            "examples": []
+         },
+         {
+            "romaji": "~tehajimete",
+            "locations": ["https://jlptsensei.com/learn-japanese-grammar/%e3%81%a6%e3%81%af%e3%81%98%e3%82%81%e3%81%a6-te-hajimete-meaning/",
+         "https://nihongokyoshi-net.com/2018/07/26/jlptn3-grammar-tehajimete/"],
+            "furigana": "〜てはじめて",
+            "japanese": "〜てはじめて",
+            "english": "only after ~ did I. It wasn't until ~ that ~.",
+            "notes": "",
             "硬い言い方": false,
             "examples": []
          }
