@@ -21,6 +21,7 @@ class Scraper:
         self.grammar_database = self.read()
 
     def scrape_example_sentences(self) -> None:
+        """Populate self.grammar_database with freshly scraped example sentences."""
         for grammar_point in self.grammar_database:
             for url in grammar_point.get("locations"):
                 source = Source.from_location_url(url)

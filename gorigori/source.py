@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 
 
 class Source(ABC):
+    """Represents the source that example sentences are scraped from."""
+
     def __init__(self, base_url: str):
         self.base_url = base_url
 
@@ -30,6 +32,12 @@ class NihongoKyoshi(Source):
 
     @staticmethod
     def parse_example_sentences(content: bytes) -> list:
+        """Parses example japanese sentences from the html source code.
+
+        - Finds all content under the '例文' header
+        - Collect all paragraph items that contain japanese characters
+        - Stops collecting when it reaches the next secondary header
+        """
         example_sentences = []
         soup = BeautifulSoup(content, "html.parser")
         target = soup.find("h2", string="例文")
@@ -51,6 +59,11 @@ class JLPTSensei(Source):
 
     @staticmethod
     def parse_example_sentences(content: bytes) -> list:
+        """Parses example japanese sentences from the html source code.
+
+        - Collects all paragraph tags on the page with the 'm-o' and 'jp' attributes
+
+        """
         example_sentences = []
         soup = BeautifulSoup(content, "html.parser")
         target = soup.find_all(name="p", attrs=["m-0", "jp"])
@@ -60,4 +73,4 @@ class JLPTSensei(Source):
 
     @staticmethod
     def format_example_sentence(string: str) -> str:
-        return string[1:]
+        return string
