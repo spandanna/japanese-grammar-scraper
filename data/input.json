@@ -1,0 +1,48 @@
+[
+      {
+         "romaji": "~shidai",
+         "locations": [
+            "https://nihongokyoshi-net.com/2018/07/08/jlptn2-grammar-shidai/",
+            "https://jlptsensei.com/learn-japanese-grammar/%e6%ac%a1%e7%ac%ac-shidai-meaning/"],
+         "furigana": "〜しだい",
+         "japanese": "〜次第",
+         "english": "as soon as ~ is finished...",
+         "notes": "After ~ is completely finished, straight away do ...",
+         "硬い言い方": false,
+         "examples": []
+      },
+         {
+            "romaji": "~sai(ni)",
+            "locations": ["https://nihongokyoshi-net.com/2018/05/03/jlptn3-grammar-sai/",
+         "https://jlptsensei.com/learn-japanese-grammar/%e9%9a%9b%e3%81%ab-sai-ni-meaning/"],
+            "japanese": "〜際（に）",
+            "furigana": "〜さい（に）",
+            "english": "when",
+            "notes": "",
+            "硬い言い方": true,
+            "examples": []
+         },
+         {
+            "romaji": "~tsutsuaru",
+            "locations": ["https://nihongokyoshi-net.com/2018/03/28/jlptn2-grammar-tsutsuaru/",
+            "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a4%e3%81%a4%e3%81%82%e3%82%8b-tsutsu-aru-meaning/"],
+            "furigana": "〜つつある",
+            "japanese": "〜つつある",
+            "english": "~ is happening. A change is occuring.",
+            "notes": "",
+            "硬い言い方": true,
+            "examples": []
+         },
+         {
+            "romaji": "~uede",
+            "locations": ["https://nihongokyoshi-net.com/2019/05/26/jlptn2-grammar-uede-3/",
+         "https://jlptsensei.com/learn-japanese-grammar/%e4%b8%8a%e3%81%a7-%e3%81%86%e3%81%88%e3%81%a7-ue-de-meaning/"],
+            "furigana": "〜うえで",
+            "japanese": "〜上で",
+            "english": "after doing ~",
+            "notes": "the antecedent is a precondition for the consequent to occur.",
+            "硬い言い方": false,
+            "examples": []
+         }
+
+     ]
