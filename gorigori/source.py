@@ -15,9 +15,6 @@ class Source(ABC):
     def parse_example_sentences(content: bytes) -> list:
         pass
 
-    def format_example_sentence(string: str) -> str:
-        pass
-
     @classmethod
     def from_location_url(cls, url: str):
         if "nihongokyoshi-net" in url:
@@ -48,13 +45,15 @@ class NihongoKyoshi(Source):
         for sib in target.find_all_next():
             if sib.name == "h2":
                 break
-            elif sib.name == "p" and not sib.text.isascii():
-                example_sentences.append(sib.text)
+            elif sib.name == "p" and len(sib.text) > 6:
+                text = sib.text if not sib.text.startswith("・") else sib.text[1:]
+                # filtering out english examples
+                text_mostly_nonascii = (
+                    sum([char.isascii() for char in text]) / len(text) < 0.5
+                )
+                if text_mostly_nonascii:
+                    example_sentences.append(text)
         return example_sentences
-
-    @staticmethod
-    def format_example_sentence(string: str) -> str:
-        return string[1:]
 
 
 class JLPTSensei(Source):
@@ -75,10 +74,6 @@ class JLPTSensei(Source):
             example_sentences.append(sentence.text)
         return example_sentences
 
-    @staticmethod
-    def format_example_sentence(string: str) -> str:
-        return string
-
 
 class GoogleNews(Source):
     def __init__(self, base_url: str = "https://www.google.com/search"):
@@ -91,9 +86,7 @@ class GoogleNews(Source):
         Not yet implemented.
         """
 
-        session = CachedSession(
-            "japanese_grammar_cache", expire_after=dt.timedelta(days=7)
-        )
+        session = CachedSession("japanese_grammar_cache")
 
         example_sentences = []
 
@@ -107,7 +100,3 @@ class GoogleNews(Source):
         # do some simple regex to extract the sentence containing the target grammar
 
         return example_sentences
-
-    @staticmethod
-    def format_example_sentence(string: str) -> str:
-        return string

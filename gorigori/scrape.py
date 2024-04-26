@@ -10,9 +10,7 @@ from gorigori.source import Source
 
 class Scraper:
     def __init__(self):
-        self.session = CachedSession(
-            "japanese_grammar_cache", expire_after=dt.timedelta(days=1)
-        )
+        self.session = CachedSession("japanese_grammar_cache")
         self.prev_request_from_cache = True
         self.data_dir = "data"
         self.input_file = os.path.join(self.data_dir, "input.json")
@@ -31,9 +29,7 @@ class Scraper:
                 self.prev_request_from_cache = response.from_cache
 
                 example_sentences = source.parse_example_sentences(response.content)
-                grammar_point["examples"] += list(
-                    map(source.format_example_sentence, example_sentences)
-                )
+                grammar_point["examples"] += list(example_sentences)
 
     def read(self) -> str:
         with open(self.input_file, "r") as f:

@@ -88,6 +88,80 @@
             "notes": "",
             "硬い言い方": false,
             "examples": []
+         },
+         {
+            "romaji": "~wohajime(toshite)",
+            "locations": ["https://jlptsensei.com/learn-japanese-grammar/%e3%82%92%e3%81%af%e3%81%98%e3%82%81%e3%81%a8%e3%81%99%e3%82%8b-o-hajime-to-suru-meaning/",
+         "https://nihongokyoshi-net.com/2018/07/09/jlptn2-grammar-hajime/"],
+            "furigana": "〜をはじめ（として）",
+            "japanese": "〜をはじめ（として）",
+            "english": "starting from~",
+            "notes": "",
+            "硬い言い方": true,
+            "examples": []
+         },
+         {
+            "romaji": "~karashite",
+            "locations": [
+               "https://nihongokyoshi-net.com/2019/05/30/jlptn2-grammar-karashite/",
+               "https://jlptsensei.com/learn-japanese-grammar/%e3%81%8b%e3%82%89%e3%81%97%e3%81%a6-kara-shite-meaning/"
+            ],
+            "furigana": "〜からして",
+            "japanese": "〜からして",
+            "english": "judging from/based on; ~ for one thing. ",
+            "notes": "Often negative but not always.",
+            "硬い言い方": false,
+            "examples": []
+         },
+         {
+            "romaji": "~niwatatte",
+            "locations": [
+               "https://nihongokyoshi-net.com/2018/07/02/jlptn3-grammar-niwatatte/",
+               "https://jlptsensei.com/learn-japanese-grammar/%e3%81%ab%e3%82%8f%e3%81%9f%e3%81%a3%e3%81%a6-ni-watatte-meaning/"
+            ],
+            "furigana": "〜にわたって",
+            "japanese": "〜にわたって",
+            "english": "throughout the entire",
+            "notes": "",
+            "硬い言い方": false,
+            "examples": []
+         },
+         {
+            "romaji": "~wotsuujite/~wotooshite",
+            "locations": [
+               "https://nihongokyoshi-net.com/2019/01/17/jlptn3-grammar-tooshite/",
+               "https://jlptsensei.com/learn-japanese-grammar/%e3%82%92%e9%80%9a%e3%81%98%e3%81%a6-%e3%82%92%e9%80%9a%e3%81%97%e3%81%a6-o-tsuujite-o-tooshite-meaning/"
+            ],
+            "furigana": "〜をつうじて・〜をとおして",
+            "japanese": "〜を通じて・〜を通して",
+            "english": "ずーと. Throughout the entire period, always doing ~.",
+            "notes": "",
+            "硬い言い方": false,
+            "examples": []
+         },
+         {
+            "romaji": "~kagiri",
+            "locations": [
+               "https://nihongokyoshi-net.com/2019/05/16/jlptn2-grammar-kagiri-2/",
+               "https://jlptsensei.com/learn-japanese-grammar/%e9%99%90%e3%82%8a-kagiri-meaning/"
+            ],
+            "furigana": "〜かぎり",
+            "japanese": "〜限り",
+            "english": "As much as possible. As far as ~",
+            "notes": "",
+            "硬い言い方": false,
+            "examples": []
+         },
+         {
+            "romaji": "~dake",
+            "locations": [
+               "https://nihongokyoshi-net.com/2019/01/16/jlptn3-grammar-dake/",
+               "https://jlptsensei.com/learn-japanese-grammar/%e3%81%a0%e3%81%91-dake-meaning-as-much-as/"            ],
+            "furigana": "〜だけ",
+            "japanese": "〜だけ",
+            "english": "Up to the limit of ~.",
+            "notes": "Like できるだけ",
+            "硬い言い方": false,
+            "examples": []
          }
-
      ]

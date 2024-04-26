@@ -18,6 +18,6 @@ Tests are created using pytest. You can run them using:
 `pytest tests`
 
 # Notes
-To avoid exceeding rate-limiting thresholds, code has been implemented to delay all new requests by 1 second. All requests are cached and expire after 1 day.
+To avoid exceeding rate-limiting thresholds, code has been implemented to delay all new requests by 1 second. All requests are cached indefinitely.
 
 

@@ -6,9 +6,10 @@ H1 = "<h1> HEADING1 </h1>"
 H2 = "<h2>例文</h2>"
 H2_OTHER = "<h2> HEADING2 OTHER</h2>"
 H3 = "<h3> HEADING3 </h3>"
-P = "<p>例文です。</p>"
+P = "<p>ちゃんとできている長例文です。</p>"
+P_SHORT = "<p>例文です。</p>"
 P_ENGLISH = "<p>example english sentence.</p>"
-P_TEXT = "例文です。"
+P_TEXT = "ちゃんとできている長例文です。"
 DIV_START = "<div>"
 DIV_END = "</div>"
 
@@ -22,11 +23,13 @@ DIV_END = "</div>"
             [P_TEXT, P_TEXT],
         ),
         ([H1, H2, P_ENGLISH, P], [P_TEXT]),
+        ([H1, H2, P_SHORT], []),
     ],
     ids=[
         "1 - base case",
         "2 - multiple sections beneath H2 containing target strings",
         "3 - english example should be filtered out",
+        "4 - short example should be filtered out",
     ],
 )
 def test_parse_example_sentences(html_lines, expected_output):
