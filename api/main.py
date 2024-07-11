@@ -24,6 +24,6 @@ async def get_random():
 
 
 @app.get("/all")
-async def get_random():
+async def get_all():
     """Get all grammar points in the output data."""
     return json.dumps(grammar_data, ensure_ascii=False)
