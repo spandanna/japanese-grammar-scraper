@@ -1,5 +1,4 @@
-"""Module for scraping example sentences for Japanese grammar points from the internet.
-"""
+"""Module for scraping example sentences for Japanese grammar points from the internet."""
 
 import json
 import time
@@ -111,9 +110,19 @@ class Scraper:
                 Defaults to None which uses 'output.json' in the gorigori data module.
         """
         output_fp = output_fp or str(files(_constants.DATA_MODULE).joinpath("output.json"))
-        grammar_data = sorted(self.grammar_data, key=lambda x: x["romaji"])
+        grammar_data = sorted(
+            self.grammar_data,
+            key=lambda x: x["romaji"],
+        )
         with open(output_fp, "w") as f:
-            f.write(json.dumps(grammar_data, ensure_ascii=False, indent=4, sort_keys=True))
+            f.write(
+                json.dumps(
+                    grammar_data,
+                    ensure_ascii=False,
+                    indent=4,
+                    sort_keys=True,
+                )
+            )
 
 
 if __name__ == "__main__":

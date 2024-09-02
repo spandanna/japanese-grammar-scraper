@@ -19,7 +19,19 @@ DIV_END = "</div>"
     [
         ([H1, H2, P, H2_OTHER], [P_TEXT]),
         (
-            [H1, H2, H3, DIV_START, P, DIV_END, H3, DIV_START, P, DIV_END, H2_OTHER],
+            [
+                H1,
+                H2,
+                H3,
+                DIV_START,
+                P,
+                DIV_END,
+                H3,
+                DIV_START,
+                P,
+                DIV_END,
+                H2_OTHER,
+            ],
             [P_TEXT, P_TEXT],
         ),
         ([H1, H2, P_ENGLISH, P], [P_TEXT]),

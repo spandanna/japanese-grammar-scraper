@@ -1,5 +1,4 @@
-"""Internal module for configuring sources that example sentences can be pulled from.
-"""
+"""Internal module for configuring sources that example sentences can be pulled from."""
 
 from abc import ABC, abstractmethod
 from typing import List, Literal
@@ -17,12 +16,17 @@ class Source(ABC):
 
     def __init__(
         self,
-        base_url: Literal["https://nihongokyoshi-net.com", "https://jlptsensei.com"],
+        base_url: Literal[
+            "https://nihongokyoshi-net.com",
+            "https://jlptsensei.com",
+        ],
     ):
         self.base_url = base_url
 
     @abstractmethod
-    def parse_example_sentences(content: bytes) -> List[str]:
+    def parse_example_sentences(
+        content: bytes,
+    ) -> List[str]:
         """Static, abstract method to be implemented by children.
 
         Parse a list of example Japanese sentences from response content bytes.
@@ -48,11 +52,16 @@ class Source(ABC):
 class NihongoKyoshi(Source):
     """Source for scraping example sentences from https://nihongokyoshi-net.com."""
 
-    def __init__(self, base_url: str = "https://nihongokyoshi-net.com"):
+    def __init__(
+        self,
+        base_url: str = "https://nihongokyoshi-net.com",
+    ):
         super().__init__(base_url)
 
     @staticmethod
-    def parse_example_sentences(content: bytes) -> List[str]:
+    def parse_example_sentences(
+        content: bytes,
+    ) -> List[str]:
         """
         Parse a list of example Japanese sentences from response content bytes.
 
@@ -88,11 +97,16 @@ class NihongoKyoshi(Source):
 class JLPTSensei(Source):
     """Source for scraping example sentences from https://jlptsensei.com."""
 
-    def __init__(self, base_url: str = "https://jlptsensei.com"):
+    def __init__(
+        self,
+        base_url: str = "https://jlptsensei.com",
+    ):
         super().__init__(base_url)
 
     @staticmethod
-    def parse_example_sentences(content: bytes) -> List[str]:
+    def parse_example_sentences(
+        content: bytes,
+    ) -> List[str]:
         """
         Parse a list of example Japanese sentences from response content bytes.
 
