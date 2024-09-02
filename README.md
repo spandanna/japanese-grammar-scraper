@@ -15,6 +15,14 @@ This project consist of a package `gorigori` which can be used to scrape example
 
 ## Scraper
 
+### Install from github
+
+Install a specific release from the repo:
+
+    pip install 'gorigori @ git+https://github.com/spandanna/japanese-grammar-scraper@v0.0.1'
+    
+### Install in repo
+
 Create a virtual environment and install `gorigori` from the repo as a package:
 
     pip install -e .

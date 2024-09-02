@@ -1,6 +1,6 @@
 import pytest
 
-import gorigori.scrape as scrape
+from gorigori import scrape
 
 
 def test_init():
@@ -12,6 +12,9 @@ def scraper_instance():
     return scrape.Scraper()
 
 
-def test_scrape(scraper_instance):
+def test_scrape(scraper_instance: scrape.Scraper):
     scraper_instance.scrape()
-    assert isinstance(scraper_instance.grammar_data[0]["examples"], list)
+    assert isinstance(
+        scraper_instance.grammar_data[0]["examples"],
+        list,
+    )

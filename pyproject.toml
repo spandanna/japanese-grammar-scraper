@@ -36,6 +36,7 @@ test = [
     "pytest",
 ]
 dev = [
+    "ruff",
     "pre-commit",
     "build",
 ]

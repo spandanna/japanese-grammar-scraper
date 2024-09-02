@@ -1,5 +1,4 @@
-"""Internal module for configuring sources that example sentences can be pulled from.
-"""
+"""Internal module for configuring sources that example sentences can be pulled from."""
 
 from abc import ABC, abstractmethod
 from typing import List, Literal
@@ -11,27 +10,36 @@ class Source(ABC):
     """Represents the source that example sentences are scraped from.
 
     Attributes:
+    ----------
         base_url (Literal["https://nihongokyoshi-net.com", "https://jlptsensei.com"]): The root url for the website.
 
     """
 
     def __init__(
         self,
-        base_url: Literal["https://nihongokyoshi-net.com", "https://jlptsensei.com"],
+        base_url: Literal[
+            "https://nihongokyoshi-net.com",
+            "https://jlptsensei.com",
+        ],
     ):
         self.base_url = base_url
 
     @abstractmethod
-    def parse_example_sentences(content: bytes) -> List[str]:
+    def parse_example_sentences(
+        content: bytes,
+    ) -> List[str]:
         """Static, abstract method to be implemented by children.
 
         Parse a list of example Japanese sentences from response content bytes.
 
         Args:
+        ----
             content (bytes): Raw bytes returned from a GET request to a single grammar point page.
 
         Returns:
+        -------
             List[str]: Example sentences for a grammar point.
+
         """
         return []
 
@@ -48,13 +56,17 @@ class Source(ABC):
 class NihongoKyoshi(Source):
     """Source for scraping example sentences from https://nihongokyoshi-net.com."""
 
-    def __init__(self, base_url: str = "https://nihongokyoshi-net.com"):
+    def __init__(
+        self,
+        base_url: str = "https://nihongokyoshi-net.com",
+    ):
         super().__init__(base_url)
 
     @staticmethod
-    def parse_example_sentences(content: bytes) -> List[str]:
-        """
-        Parse a list of example Japanese sentences from response content bytes.
+    def parse_example_sentences(
+        content: bytes,
+    ) -> List[str]:
+        """Parse a list of example Japanese sentences from response content bytes.
 
         Parses sentences from the html code as follows:
 
@@ -63,9 +75,11 @@ class NihongoKyoshi(Source):
             - Stops collecting when it reaches the next secondary header
 
         Args:
+        ----
             content (bytes): Raw bytes returned from a GET request to a single grammar point page.
 
         Returns:
+        -------
             List[str]: Example sentences for a grammar point.
 
         """
@@ -88,23 +102,30 @@ class NihongoKyoshi(Source):
 class JLPTSensei(Source):
     """Source for scraping example sentences from https://jlptsensei.com."""
 
-    def __init__(self, base_url: str = "https://jlptsensei.com"):
+    def __init__(
+        self,
+        base_url: str = "https://jlptsensei.com",
+    ):
         super().__init__(base_url)
 
     @staticmethod
-    def parse_example_sentences(content: bytes) -> List[str]:
-        """
-        Parse a list of example Japanese sentences from response content bytes.
+    def parse_example_sentences(
+        content: bytes,
+    ) -> List[str]:
+        """Parse a list of example Japanese sentences from response content bytes.
 
         Parses sentences from the html code as follows:
 
             - Collects all paragraph items on the page with the 'm-o' and 'jp' attributes
 
         Args:
+        ----
             content (bytes): Raw bytes returned from a GET request to a single grammar point page.
 
         Returns:
+        -------
             List[str]: Example sentences for a grammar point.
+
         """
         example_sentences = []
         soup = BeautifulSoup(content, "html.parser")
