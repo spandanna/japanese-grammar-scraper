@@ -134,8 +134,8 @@
             ],
             "furigana": "〜をつうじて・〜をとおして",
             "japanese": "〜を通じて・〜を通して",
-            "english": "ずーと. Throughout the entire period, always doing ~.",
-            "notes": "",
+            "english": "Throughout the entire period, always doing ~.",
+            "notes": "ずーと",
             "硬い言い方": false,
             "examples": []
          },
@@ -161,6 +161,18 @@
             "japanese": "〜だけ",
             "english": "Up to the limit of ~.",
             "notes": "Like できるだけ",
+            "硬い言い方": false,
+            "examples": []
+         },
+         {
+            "romaji": "~ageku",
+            "locations": [
+               "https://jlptsensei.com/learn-japanese-grammar/%e3%81%82%e3%81%92%e3%81%8f-ageku-meaning/",
+               "https://nihongokyoshi-net.com/2019/04/19/jlptn2-grammar-ageku/"],
+            "furigana": "〜あげく",
+            "japanese": "〜あげく",
+            "english": "after ~ ended up ...",
+            "notes": "Indicates disappointment or a negative outcome.",
             "硬い言い方": false,
             "examples": []
          }

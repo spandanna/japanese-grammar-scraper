@@ -12,6 +12,6 @@ def scraper_instance():
     return scrape.Scraper()
 
 
-def test_scrape_example_sentences(scraper_instance):
-    scraper_instance.scrape_example_sentences()
-    assert isinstance(scraper_instance.grammar_database[0]["examples"], list)
+def test_scrape(scraper_instance):
+    scraper_instance.scrape()
+    assert isinstance(scraper_instance.grammar_data[0]["examples"], list)

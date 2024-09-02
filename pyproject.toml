@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=62.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["gorigori*"]
+
+[project]
+name = "gorigori"
+version = "0.0.1"
+authors = [
+  { name="Anna Harding", email="annaharding.29@googlemail.com" },
+]
+description = "A package to scrape Japanese grammar points from free online sources."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "requests",
+    "beautifulsoup4",
+    "pandas",
+    "requests-cache",
+    "fastapi[all]"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pre-commit",
+    "build",
+]
+docs = [
+    "sphinx",
+    "furo",
+    "sphinx-favicon",
+]
+
+[project.urls]
+Homepage = "https://github.com/spandanna/japanese-grammar-scraper/"
+Issues = "https://github.com/spandanna/japanese-grammar-scraper/issues"
