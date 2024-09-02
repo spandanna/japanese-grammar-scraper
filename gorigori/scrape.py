@@ -16,6 +16,7 @@ class Scraper:
     """Class for scraping example sentences for Japanese grammar points from the internet.
 
     Attributes:
+    ----------
         session (CachedSession): Cached requests session that indefinitely stores the web scraping
             response data. This is a simple cache that uses a sqlite database in the local filesystem.
         input_fp (str): Path to a json file containing a list of grammar point dictionaries.
@@ -29,6 +30,7 @@ class Scraper:
         """Create an instance of the ``Scraper`` class.
 
         Args:
+        ----
             input_fp (str, optional): Path to a json file containing a list of grammar point dictionaries.
                 Each grammar point must have the following keys:
 
@@ -39,7 +41,7 @@ class Scraper:
                 Defaults to None which uses 'input.json' in the gorigori data module.
 
         Examples:
-
+        --------
             Simple usage::
 
                 from gorigori import Scraper
@@ -70,6 +72,7 @@ class Scraper:
         each source available for a grammar point.
 
         Populates the 'examples' key for each grammar point in self.grammar database.
+
         """
         self.prev_request_from_cache = True
         for grammar_point in tqdm.tqdm(self.grammar_data):
@@ -92,7 +95,9 @@ class Scraper:
         Reads the input json file.
 
         Returns:
+        -------
             List[dict]: A list of grammar points. Each grammar point is a dictionary.
+
         """
         with open(self.input_fp, "r") as f:
             return json.loads(f.read())
@@ -106,8 +111,10 @@ class Scraper:
         Sorts each dictionary alphabetically.
 
         Args:
+        ----
             output_fp (str, optional): Path to a json file where the grammar point with examples will be written to.
                 Defaults to None which uses 'output.json' in the gorigori data module.
+
         """
         output_fp = output_fp or str(files(_constants.DATA_MODULE).joinpath("output.json"))
         grammar_data = sorted(

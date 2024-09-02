@@ -10,6 +10,7 @@ class Source(ABC):
     """Represents the source that example sentences are scraped from.
 
     Attributes:
+    ----------
         base_url (Literal["https://nihongokyoshi-net.com", "https://jlptsensei.com"]): The root url for the website.
 
     """
@@ -32,10 +33,13 @@ class Source(ABC):
         Parse a list of example Japanese sentences from response content bytes.
 
         Args:
+        ----
             content (bytes): Raw bytes returned from a GET request to a single grammar point page.
 
         Returns:
+        -------
             List[str]: Example sentences for a grammar point.
+
         """
         return []
 
@@ -62,8 +66,7 @@ class NihongoKyoshi(Source):
     def parse_example_sentences(
         content: bytes,
     ) -> List[str]:
-        """
-        Parse a list of example Japanese sentences from response content bytes.
+        """Parse a list of example Japanese sentences from response content bytes.
 
         Parses sentences from the html code as follows:
 
@@ -72,9 +75,11 @@ class NihongoKyoshi(Source):
             - Stops collecting when it reaches the next secondary header
 
         Args:
+        ----
             content (bytes): Raw bytes returned from a GET request to a single grammar point page.
 
         Returns:
+        -------
             List[str]: Example sentences for a grammar point.
 
         """
@@ -107,18 +112,20 @@ class JLPTSensei(Source):
     def parse_example_sentences(
         content: bytes,
     ) -> List[str]:
-        """
-        Parse a list of example Japanese sentences from response content bytes.
+        """Parse a list of example Japanese sentences from response content bytes.
 
         Parses sentences from the html code as follows:
 
             - Collects all paragraph items on the page with the 'm-o' and 'jp' attributes
 
         Args:
+        ----
             content (bytes): Raw bytes returned from a GET request to a single grammar point page.
 
         Returns:
+        -------
             List[str]: Example sentences for a grammar point.
+
         """
         example_sentences = []
         soup = BeautifulSoup(content, "html.parser")

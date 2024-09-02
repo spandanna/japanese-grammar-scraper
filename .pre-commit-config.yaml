@@ -1,20 +1,13 @@
 repos:
-  # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
-  - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 24.4.0
-    hooks:
-      - id: black
-        language_version: python3.12
-        args: ["--line-length", "120"]
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-        language_version: python3.12
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0
-    hooks:
-      - id: flake8
-        name: flake8 - Python linting
-        additional_dependencies: [flake8-bugbear]
-        args: ["--max-line-length", "120"]
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.6.3
+  hooks:
+    # Run the linter
+    - id: ruff
+      args: [ "--fix", "--line-length", "120"]
+    # Run linting for docstrings
+    - id:  ruff
+      args: [ "--fix", "--config", "lint.select = ['D']", "--config", "lint.pydocstyle.convention = 'google'", "--exclude", "tests/*,docs/*"]
+    # Run formatter
+    - id: ruff-format
+      args: [ "--line-length", "120" ]

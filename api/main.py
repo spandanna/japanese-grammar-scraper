@@ -19,6 +19,7 @@ app = FastAPI(version=version)
 
 @app.get("/")
 async def root():
+    """Get the version of the current API."""
     return {"version": app.version}
 
 
