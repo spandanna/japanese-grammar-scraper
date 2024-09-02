@@ -4,7 +4,7 @@ A web scraping project to pull example sentences for japanese grammar points. Th
 
 # To run
 
-*Note: This project has been created and tested using python 3.12.*
+*Note: This project only supports python >=3.10*
 
 ## Scraper
 

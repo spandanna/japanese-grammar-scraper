@@ -1,0 +1,64 @@
+name: build
+
+env:
+  python_build_version: 3.12.4
+
+on:
+  # when test workflow finishes
+  workflow_run:
+    workflows: [test]
+    types: [completed]
+
+jobs:
+  build-package-and-docs:
+    runs-on: ubuntu-latest
+    # and when test workflow is successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - name: Download repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ env.python_build_version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.python_build_version }}
+
+    - name: Install build dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r ./requirements.txt
+
+    - name: Build package
+      run: |
+        python -m build
+        echo "WHL_PATH=$(find ./dist/*.whl)" >> $GITHUB_ENV
+
+    - name: Build docs
+      run: |
+        cd docs
+        make html
+
+    - name: Extract WHL name and version
+      run: |
+        WHL_FILE=$(find ./dist/*.whl -type f -exec basename {} \;)
+        WHL_NAME=$(echo $WHL_FILE | cut -d'-' -f1)
+        WHL_VERSION=$(echo $WHL_FILE | cut -d'-' -f2)
+        ARTIFACT_NAME="${WHL_NAME}-${WHL_VERSION}"
+        echo "ARTIFACT_NAME=$ARTIFACT_NAME" >> $GITHUB_ENV
+        echo "WHL_FILE=$WHL_FILE" >> $GITHUB_ENV
+
+    - name: Prepare artifacts
+      run: |
+        cp ${{ env.WHL_PATH }} ${{ env.WHL_FILE }}
+        cp -r ./docs/build/html ./docs
+        cp -r ./docs/build/doctrees ./docs
+
+
+    - name: Upload package and docs
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.ARTIFACT_NAME }}
+        path: |
+          ${{ env.WHL_FILE }}
+          ./docs/html/*
+          ./docs/doctrees/*
