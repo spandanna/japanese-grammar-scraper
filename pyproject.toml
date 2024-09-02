@@ -32,8 +32,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
+test = [
     "pytest",
+]
+dev = [
     "pre-commit",
     "build",
 ]

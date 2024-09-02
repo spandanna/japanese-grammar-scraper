@@ -31,11 +31,10 @@ jobs:
       - name: Install Python Library Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r ./requirements.txt
+          pip install -e '.[test]'
 
       - name: Run tests on the repo
         run: |
-          pip install -e .
           pytest tests --junit-xml=test-results.xml
 
       - name: Surface failing tests
