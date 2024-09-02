@@ -1,6 +1,6 @@
 import pytest
 
-from gorigori.source import JLPTSensei
+from gorigori._source import JLPTSensei
 
 H1 = "<h1> HEADING1 </h1>"
 EXAMPLE_CONTAINER_DIV = "<div id=examples >"

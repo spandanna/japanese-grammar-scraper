@@ -1,6 +1,6 @@
 import pytest
 
-from gorigori.source import NihongoKyoshi
+from gorigori._source import NihongoKyoshi
 
 H1 = "<h1> HEADING1 </h1>"
 H2 = "<h2>例文</h2>"
