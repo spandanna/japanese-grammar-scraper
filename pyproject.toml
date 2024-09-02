@@ -28,7 +28,6 @@ dependencies = [
     "beautifulsoup4",
     "pandas",
     "requests-cache",
-    "fastapi[all]",
     "tqdm",
 ]
 
